@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Javiera (Yi) Saint-Jour Castro</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #FFFFFF;
+            --text-color: #111111;
+            --accent-color: #555555; 
+            --line-color: #111111;
+            --font-main: 'Inter', Helvetica, Arial, sans-serif;
+        }
+
+        /* RESET & BASE */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 14px; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.45;
+            -webkit-font-smoothing: antialiased;
+            margin: 0 auto;
+            padding: 35px 30px;
+            max-width: 820px;
+        }
+
+        /* HEADER */
+        header { 
+            margin-bottom: 22px; 
+            padding-bottom: 14px;
+            border-bottom: 2px solid var(--line-color);
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .role {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--accent-color);
+            margin-bottom: 12px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 12px;
+            color: var(--accent-color);
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+        }
+        
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover { text-decoration: underline; }
+
+        /* SECCIONES CON ESPACIADO COMPACTO Y OPTIMIZADO */
+        section {
+            padding-top: 16px;
+            margin-bottom: 18px;
+            border-top: 1px solid #eee;
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 20px;
+        }
+
+        h2 {
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 0;
+            color: var(--text-color);
+        }
+
+        h2::before {
+            content: "✶ ";
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        /* PERFIL */
+        .bio-text p {
+            font-size: 0.92rem;
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+            color: #222;
+        }
+
+        .bio-text p:last-child { margin-bottom: 0; }
+
+        .highlight {
+            font-weight: 500;
+            color: #000;
+            padding-left: 12px;
+            border-left: 3px solid var(--line-color);
+            margin-top: 4px;
+        }
+
+        /* ENTRADAS (Experiencia, Docencia, Formación) */
+        .entry {
+            display: grid;
+            grid-template-columns: 1fr 130px;
+            gap: 10px;
+            break-inside: avoid;
+        }
+
+        .entry-main h3 {
+            font-size: 0.92rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .institution {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent-color);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .description {
+            font-size: 0.85rem;
+            color: #333;
+            line-height: 1.45;
+        }
+        
+        .description ul { padding-left: 14px; margin-top: 4px; }
+        .description li { margin-bottom: 3px; }
+
+        .date {
+            text-align: right;
+            font-size: 0.80rem;
+            font-weight: 500;
+            color: var(--accent-color);
+        }
+
+        /* COMPETENCIAS GRID */
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 16px;
+        }
+        
+        .comp-category h3 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            font-weight: 600;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 4px;
+        }
+
+        .comp-list { list-style: none; padding: 0; }
+        .comp-list li {
+            font-size: 0.83rem;
+            margin-bottom: 4px;
+            color: #222;
+        }
+
+        /* TOOLKIT */
+        .toolkit-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toolkit-level h3 {
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 1px;
+        }
+
+        .toolkit-desc {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            display: block;
+        }
+
+        /* REGLAS EXCLUSIVAS PARA EXPORTAR A PDF */
+        @media print {
+            body { 
+                padding: 0; 
+                max-width: 100%; 
+            }
+            section { 
+                padding-top: 12px; 
+                margin-bottom: 14px; 
+                break-inside: auto;
+            }
+            .entry { 
+                break-inside: avoid;
+            }
+            a { 
+                text-decoration: none !important; 
+                color: #000 !important; 
+            }
+        }
+
+        @media (max-width: 650px) {
+            body { padding: 25px 18px; }
+            section { grid-template-columns: 1fr; gap: 12px; }
+            .entry { grid-template-columns: 1fr; gap: 2px; }
+            .date { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Javiera (Yi) Saint-Jour</h1>
+        <div class="role">Diseñadora Multidisciplinaria | Dirección Creativa Estratégica y Gestión de Proyectos</div>
+        
+        <div class="contact-links">
+            <span>Santiago de Chile</span>
+            <span>•</span>
+            <a href="https://wa.me/56949873116">+569-49873116</a>
+            <span>•</span>
+            <a href="mailto:yyyi.works@gmail.com">yyyi.works@gmail.com</a>
+            <span>•</span>
+            <a href="https://www.figma.com/deck/Pl5TNL8H8rIzfUUd8sbeaN/Portafolio-Javiera-Saint-Jour-2026?node-id=0-1&t=ZEtbDI6lK77FWkXa-1" target="_blank">Portafolio 2026</a>
+        </div>
+    </header>
+
+    <!-- PERFIL -->
+    <section id="perfil">
+        <h2>Perfil</h2>
+        <div class="content bio-text">
+            <p>
+                Tecnocreativa enfocada en integrar el diseño desde la estrategia, la sensibilidad cultural y la adopción ética de tecnologías emergentes para resolver proyectos de alta complejidad visual.
+            </p>
+            <p class="highlight">
+                Mi valor diferencial radica en la articulación metodológica y la profundidad conceptual. Trabajo bajo una estructura rigurosa para asegurar que cada propuesta sea coherente y responda a un objetivo comunicativo claro, tanto en entornos físicos como digitales.
+            </p>
+        </div>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section id="experiencia">
+        <h2>Experiencia</h2>
+        <div class="content">
+            
+            <article class="entry">
+                <div class="entry-main">
+                    <h3>Gestora de Proyectos de Comunicación (Design Project Manager)</h3>
+                    <span class="institution">Santiago Design Experience (SDE)</span>
+                    <div class="description">
+                        <ul>
+                            <li><strong>Coordinación 360°:</strong> Dirección de equipos remotos multidisciplinarios (redacción, diseño, audiovisual), curaduría editorial y validación directa con ejecutivos C-Level.</li>
+                            <li><strong>Liderazgo y Estrategia B2B:</strong> Dirección general de campañas y comunicación estratégica para marcas del sector tecnológico y CX.</li>
+                            <li><strong>Gestión con Inteligencia Artificial:</strong> Orquestación de flujos creativos y producción optimizada con Inteligencia Artificial. Supervisión de metodologías ágiles y control de calidad humano para asegurar rigor corporativo y consistencia visual.</li>
+                        </ul>
+                    </div>
+                </div>
+                <span class="date">2025 – Presente</span>
+            </article>
+
+            <article class="entry">
+                <div class="entry-main">
+                    <h3>Directora de Arte y Coordinadora Visual (Giras LATAM)</h3>
+                    <span class="institution">Urimusic Entertainment</span>
+                    <div class="description">
+                        <ul>
+                            <li><strong>Dirección de Arte y Localización Transmedia:</strong> Construcción de ecosistemas gráficos para giras internacionales de conciertos y Fan Meetings en Chile, Brasil, México y Perú (Jung Hae In, Hwang In Youp, Dreamcatcher, pH-1).</li>
+                            <li><strong>Gestión de Merchandising e Impresos:</strong> Conceptualización de indumentaria oficial, coordinando aprobaciones internacionales directas con agencias en Corea del Sur.</li>
+                        </ul>
+                    </div>
+                </div>
+                <span class="date">2022 – 2026</span>
+            </article>
+
+            <article class="entry">
+                <div class="entry-main">
+                    <h3>Consultora Creativa y Diseñadora de Identidad</h3>
+                    <span class="institution">Práctica Profesional Independiente</span>
+                    <div class="description">
+                        <ul>
+                            <li><strong>Branding:</strong> Dirección creativa estratégica, desarrollando desde las definiciones de fundamentos, tono comunicacional y ecosistema visual hasta la producción gráfica para aplicaciones digitales e impresos.</li>
+                            <li><strong>Producción Multidisciplinaria:</strong> Desarrollo autónomo de proyectos de identidad visual, estrategia de contenidos, fotografía, 3D, multimedia y piezas editoriales.</li>
+                        </ul>
+                    </div>
+                </div>
+                <span class="date">2019 – Presente</span>
+            </article>
+
+            <article class="entry">
+                <div class="entry-main">
+                    <h3>Diseñadora AR (Realidad Aumentada)</h3>
+                    <span class="institution">CRTIC – Congreso Futuro</span>
+                    <div class="description">
+                        <p>Diseño y programación de filtros y experiencias inmersivas de Realidad Aumentada para la exhibición “SinfonIA Digital”.</p>
+                    </div>
+                </div>
+                <span class="date">Dic 2023 – Ene 2024</span>
+            </article>
+
+            <article class="entry">
+                <div class="entry-main">
+                    <h3>Staff de Producción y Montaje</h3>
+                    <span class="institution">Urimusic / NoiX Entertainment / Feria IMPRESIONANTE</span>
+                    <div class="description">
+                        <p>Soporte logístico, operativo y montaje en eventos masivos y ferias de edición e imprenta independiente.</p>
+                    </div>
+                </div>
+                <span class="date">2017 – 2024</span>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- DOCENCIA E INVESTIGACIÓN -->
+    <section id="docencia">
+        <h2>Docencia</h2>
+        <div class="content">
+            
+            <article class="entry">
+                <div class="entry-main">
+                    <h3>Profesora Ayudante y Guía de Proyectos de Diseño</h3>
+                    <span class="institution">Facultad de Arquitectura y Urbanismo (FAU) – Universidad de Chile</span>
+                    <div class="description">
+                        <p>Acompañamiento pedagógico, mediación metodológica y guía de proyectos de diseño para estudiantes de ciclo avanzado en la cátedra del Prof. Rodrigo Dueñas.</p>
+                    </div>
+                </div>
+                <span class="date">2023 – 2025</span>
+            </article>
+
+            <article class="entry">
+                <div class="entry-main">
+                    <h3>Instructora de Tecnologías Inmersivas (Meta Spark AR)</h3>
+                    <span class="institution">CRTIC (Centro de Revolución Tecnológica Creativa)</span>
+                    <div class="description">
+                        <p>Docente del "Programa de Formación en Meta Spark: AR Fundamentals", capacitando a profesionales en el desarrollo de Realidad Aumentada aplicada a industrias creativas.</p>
+                    </div>
+                </div>
+                <span class="date">2023</span>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- FORMACIÓN -->
+    <section id="formacion">
+        <h2>Formación</h2>
+        <div class="content">
+            
+            <article class="entry">
+                <div class="entry-main">
+                    <h3>Diseñadora Gráfica | Licenciada en Diseño</h3>
+                    <span class="institution">Universidad de Chile</span>
+                    <div class="description">
+                        Titulada con Distinción Máxima, Mención Gráfica.<br>
+                        <a href="https://repositorio.uchile.cl/handle/2250/191997" target="_blank" style="text-decoration: underline;">Ver Repositorio Académico U. de Chile</a>
+                    </div>
+                </div>
+                <span class="date">2016 – 2022</span>
+            </article>
+
+            <article class="entry">
+                <div class="entry-main">
+                    <h3>Ingeniería Comercial (Pregrado)</h3>
+                    <span class="institution">Universidad Técnica Federico Santa María</span>
+                    <div class="description">Estudios de pregrado enfocados en fundamentos de economía y administración.</div>
+                </div>
+                <span class="date">2013 – 2014</span>
+            </article>
+
+            <article class="entry">
+                <div class="entry-main">
+                    <h3>Especialización en Tecnologías Creativas y Comunidades</h3>
+                    <span class="institution">CRTIC / Ministerio de las Culturas, las Artes y el Patrimonio (MinCAP)</span>
+                    <div class="description">Certificaciones en Unreal Engine Fundamentals, Meta Spark AR y Escuela de Gestión de Públicos y Comunidades Culturales.</div>
+                </div>
+                <span class="date">2022 – 2023</span>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- COMPETENCIAS -->
+    <section id="competencias">
+        <h2>Competencias</h2>
+        <div class="content">
+            <div class="competencies-grid">
+                
+                <div class="comp-category">
+                    <h3>DIRECCIÓN CREATIVA (NARRATIVA Y VISUAL)</h3>
+                    <ul class="comp-list">
+                        <li>Diseño de identidad y branding sistémico</li>
+                        <li>Dirección de arte y storytelling transmedia</li>
+                        <li>Producción visual, material y orfebrería</li>
+                        <li>Dirección fotográfica y motion graphics</li>
+                    </ul>
+                </div>
+
+                <div class="comp-category">
+                    <h3>ESTRATEGIA (INVESTIGACIÓN Y DEFINICIÓN)</h3>
+                    <ul class="comp-list">
+                        <li>Diseño Centrado en las Personas (HCD)</li>
+                        <li>Diseño e investigación de comunidades</li>
+                        <li>Estrategia de contenidos y tono de voz</li>
+                        <li>Curaduría editorial y análisis conceptual</li>
+                    </ul>
+                </div>
+                
+                <div class="comp-category">
+                    <h3>GESTIÓN (DIRECCIÓN DE PROYECTOS 360°)</h3>
+                    <ul class="comp-list">
+                        <li>Design Project Management</li>
+                        <li>Liderazgo y articulación de equipos multidisciplinarios</li>
+                        <li>Gestión de enlaces con ejecutivos C-Level / Clientes</li>
+                        <li>Docencia universitaria y guía pedagógica</li>
+                    </ul>
+                </div>
+
+                <div class="comp-category">
+                    <h3>TECNOCREATIVIDAD (HERRAMIENTAS EMERGENTES)</h3>
+                    <ul class="comp-list">
+                        <li>Orquestación y flujos con Inteligencia Artificial</li>
+                        <li>Realidad Aumentada (Spark AR) y 3D</li>
+                        <li>Experimentación híbrida (físico/digital)</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TOOLKIT -->
+    <section id="toolkit">
+        <h2>Toolkit Digital</h2>
+        <div class="content">
+            <div class="toolkit-grid">
+                
+                <div class="toolkit-level">
+                    <h3>Nivel Avanzado</h3>
+                    <span class="toolkit-desc">Adobe Creative Suite (Photoshop, Illustrator, InDesign, After Effects, Premiere Pro).</span>
+                </div>
+
+                <div class="toolkit-level">
+                    <h3>Nivel Intermedio</h3>
+                    <span class="toolkit-desc">Nomad Sculpt (3D), Procreate, CapCut, Figma, Herramientas GenAI (Perplexity AI, Claude, Magnific, Kling AI), Meta Spark AR Studio, Unreal Engine.</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
